@@ -15,11 +15,12 @@ def get_version():
     """Get version from git or file system.
     If this is a git repository, try to get the version number by
     running ``git describe``, then store it in
-    quantiplex/_version.py. Otherwise, try to load the version number
+    ancestry/_version.py. Otherwise, try to load the version number
     from that file. If both methods fail, quietly return None.
     """
     git_version_nr = None
     git_version_sub = None
+    git_version_full = None
     if os.path.exists(os.path.join(os.path.dirname(__file__), '.git')):
         import subprocess
         try:
@@ -35,7 +36,7 @@ def get_version():
         except:
             pass
 
-    version_file = os.path.join(os.path.dirname(__file__), 'quantiplex',
+    version_file = os.path.join(os.path.dirname(__file__), 'ancestry',
                                 '_version.py')
     if os.path.exists(version_file):
         with open(version_file) as f:
@@ -77,7 +78,7 @@ def get_url():
     """Get url from git or file system.
     If this is a git repository, try to get the url by
     running ``git describe``, then store it in
-    quantiplex/_url.py. Otherwise, try to load the version number
+    ancestry/_url.py. Otherwise, try to load the version number
     from that file. If both methods fail, quietly return None.
     """
     git_url = None
@@ -90,7 +91,7 @@ def get_url():
         except:
             pass
 
-    url_file = os.path.join(os.path.dirname(__file__), 'quantiplex',
+    url_file = os.path.join(os.path.dirname(__file__), 'ancestry',
                             '_url.py')
     if os.path.exists(url_file):
         with open(url_file) as f:

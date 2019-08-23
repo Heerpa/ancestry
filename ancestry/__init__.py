@@ -8,7 +8,7 @@ import matplotlib
 # 'module://ipykernel.pylab.backend_inline'
 # currently: in jpnbs, first import pyplot as plt or directly set
 # matplotlib.use('module://ipykernel.pylab.backend_inline')
-# before importing quantiplex.
+# before importing ancestry.
 currbackend = matplotlib.get_backend()
 if ('ipykernel' not in currbackend) and 'plt' not in locals():
     matplotlib.use('agg')  # to be able to save figs from docker container
@@ -16,21 +16,21 @@ if ('ipykernel' not in currbackend) and 'plt' not in locals():
 
 def get_version():
     """Get version from file system, as written during install in
-    quantiplex/_version.py.
+    ancestry/_version.py.
     """
     version_file = os.path.join(os.path.dirname(__file__),
                                 '_version.py')
     # see if git can be accessed to write a new version file
     currdir = os.getcwd()
-    quantiplexroot = os.path.split(os.path.dirname(__file__))[0]
-    gitloc = os.path.join(quantiplexroot, '.git')
+    ancestryroot = os.path.split(os.path.dirname(__file__))[0]
+    gitloc = os.path.join(ancestryroot, '.git')
     possible_gitlocs = [gitloc,
                         os.path.join(os.path.split(version_file)[0], '.git')]
     gitloc = [loc for loc in possible_gitlocs if os.path.exists(loc)][0]
     if os.path.exists(gitloc):
         import subprocess
         try:
-            os.chdir(quantiplexroot)
+            os.chdir(ancestryroot)
             git_version_sub = subprocess.check_output(
                     ["git", "describe", "--always"]).decode('UTF-8').rstrip()
             git_version_full = subprocess.check_output(
@@ -85,7 +85,7 @@ def get_version():
 
 def get_url():
     """Get url from file system as saved during install in
-    quantiplex/_url.py.
+    ancestry/_url.py.
     """
     url_file = os.path.join(os.path.dirname(__file__), '_url.py')
     if os.path.exists(url_file):

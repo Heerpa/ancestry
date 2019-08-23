@@ -1,9 +1,9 @@
 # issues on Mac as of May 16, 2017 (updated by PN, Aug 31, 2018):
-# before you set up the conda environment on a Mac, check if you have the xcode command line tools installed (using "xcode-select --install"):
+# before you set up the conda environment on a Mac, check if you have the xcode command line tools installed (using "$ xcode-select --install"):
 # after setting up environment
-# (using "conda env create -f .conda_environment.yaml")
+# (using "$ conda env create -f .conda_environment.yaml")
 # for updating the environment, best first remove:
-# "conda remove --name quantiplex_env --all"
+# "$ conda remove --name ancestry_env --all"
 # and then re-create
 #
 # no current special issues on linux
