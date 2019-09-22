@@ -9,9 +9,9 @@ import matplotlib
 # currently: in jpnbs, first import pyplot as plt or directly set
 # matplotlib.use('module://ipykernel.pylab.backend_inline')
 # before importing ancestry.
-currbackend = matplotlib.get_backend()
-if ('ipykernel' not in currbackend) and 'plt' not in locals():
-    matplotlib.use('agg')  # to be able to save figs from docker container
+# currbackend = matplotlib.get_backend()
+# if ('ipykernel' not in currbackend) and 'plt' not in locals():
+#     matplotlib.use('agg')  # to be able to save figs from docker container
 
 
 def get_version():
@@ -54,9 +54,9 @@ def get_version():
             cached_version_content = f.read().strip()
         try:
             # From http://stackoverflow.com/a/3619714/17498
-            cached_version_nr = re.search(
-                    r"^__version__ = ['\"]([^'\"]*)['\"]",
-                    cached_version_content, re.M).group(1)
+            # cached_version_nr = re.search(
+            #         r"^__version__ = ['\"]([^'\"]*)['\"]",
+            #         cached_version_content, re.M).group(1)
             cached_version_sub = re.search(
                     r"^__version_full__ = ['\"]([^'\"]*)['\"]",
                     cached_version_content, re.M).group(1)
@@ -67,7 +67,7 @@ def get_version():
             raise RuntimeError("Unable to find version in %s" % version_file)
     else:
         cached_version_sub = None
-        cached_version_nr = None
+        # cached_version_nr = None
         cached_version_full = None
 
     if git_version_sub and git_version_sub != cached_version_sub:
@@ -105,3 +105,12 @@ currdir = os.getcwd()
 __version__ = get_version()
 URL = get_url()
 os.chdir(currdir)
+
+
+__ancestry_cols__ = [
+    'ID', 'Name-geb', 'Vorname', 'Titel', 'akad.', 'andere Vorn', 'geb Datum',
+    'Ort', 'gest Datum', 'Ort.1', '#Vater', '#Mutter', 'AnzP', 'verh',
+    '#Part', 'Kinder', 'k1', 'k2', 'k3', 'k4', 'k5', 'k6', 'k7', 'k8', 'k9',
+    'k10', 'k11', 'k12', 'k13', 'k14', 'kend', 'frau2', 'Kind2', '2k1',
+    '2k2', '2k3', '2k4', '2k5', '2k6', '2k7', '2k8', '2k9', '2k10', '2k11',
+    '2kend', 'uuid']

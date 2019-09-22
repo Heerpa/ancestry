@@ -47,3 +47,14 @@ class TestFileIO(unittest.TestCase):
         print(df_in)
 
         pd.testing.assert_frame_equal(df, df_in)
+
+    def test_ahnentest(self):
+        testfname = './ancestry/tests/TestData/ahnen-test.csv'
+
+        df_in = acs_fio.read_csv(testfname)
+        print('columns')
+        print(df_in.columns)
+        print('loaded')
+        print(df_in)
+
+        # assert False
