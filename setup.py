@@ -115,7 +115,7 @@ def get_url():
 
 setup(
     name="ancestry",
-    version=get_version(),
+    # version=get_version(),
     author="Peter & Heinrich Grabmayr",
     description=("A python based software suite to " +
                  "manage and plot ancestry data."),
