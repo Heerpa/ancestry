@@ -122,8 +122,8 @@ setup(
     license="GPL-2",
     keywords="ancestors, descendents",
     # url=get_url(),
-    # entry_points={'console_scripts':
-    #               ['ancestry = ancestry.__main__:main']},
+    entry_points={'console_scripts':
+                  ['ancestry = ancestry.__main__:main']},
     packages=find_packages(exclude=['tests']),
     long_description=read('README.md'),
     classifiers=[
