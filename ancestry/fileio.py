@@ -22,7 +22,7 @@ def read_csv(fname):
         data : pd.DataFrame
             the content of the file
     '''
-    return pd.read_csv(fname, sep=';')
+    return pd.read_csv(fname, sep=';', index_col=0)
 
 
 def to_csv(fname, data):
@@ -48,10 +48,10 @@ def read_excel(fname):
         data : pd.DataFrame
             the content of the file
     '''
-    return pd.read_excel(fname)
+    return pd.read_excel(fname, index_col=0)
 
 
-def write_excel(fname, data):
+def to_excel(fname, data):
     '''Writes data to an excel file.
 
     Args:

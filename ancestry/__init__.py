@@ -37,9 +37,6 @@ def get_version():
                     ["git", "describe", "--tags"]).decode('UTF-8').rstrip()
             git_version_nr = re.search(
                     r"([^-]*)", git_version_full, re.M).group(1)
-            # git_version = subprocess.Popen(['git', 'describe'],
-            #                                stdout=subprocess.PIPE).communicate(
-            #                                  )[0].strip().decode('utf-8')
         except:
             git_version_sub = None
             git_version_nr = None
